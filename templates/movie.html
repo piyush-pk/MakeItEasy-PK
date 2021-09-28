@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block form %}
+<div class="container text-center my-4 p-3">
+    <h1 class="border border-4 rounded-3 p-4"><u>Check Any Movie Details Like IMDB Without Any Ads</u>.</h1>
+    {% if request.method == "POST" %}
+    <div class="container flex row text-center my-3">
+    {% for item in response.Search %}
+    <div class="card m-2 border border-4 rounded-3 border-color-primary" style="width: 24rem;">
+        {% if item.Poster == 'N/A' %}
+            <img src="static/img/not.jpg" class="card-img-top" height="350px" width="150px" alt="{{item.Title}}">
+        {% else %}
+            <img src="{{item.Poster}}" class="card-img-top" height="350px" width="150px" alt="{{item.Title}}">
+        {% endif %}
+        
+        <div class="card-body">
+            <h5 class="card-title"> Type: {{item.Type}}, Year: {{item.Year}} </h5>
+            <p class="card-text">{{item.Title}}</p>
+            <a href="https://www.imdb.com/title/{{item.imdbID}}/" target="_blank" class="btn btn-primary">Find Out More </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    <div class="container my-3 border border-color-warning border-4 rounded-3">
+        <h4 class="display-6 mt-4">Find Other Details</h4>
+        <form action="/movie" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" required class="form-control" name="movie" placeholder="Enter Movie Name"
+                    aria-label="Username" aria-describedby="basic-addon1">
+
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning" type="submit">Check Now</button>
+            </div>
+        </form>
+    </div>
+
+    {% else %}
+    <img src="/static/img/22.svg" class="img-fluid" alt="...">
+    <div class="text-center mt-4 p-3">
+        <form action="/movie" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" required class="form-control" name="movie" placeholder="Enter Movie Name"
+                    aria-label="Username" aria-describedby="basic-addon1">
+
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning" type="submit">Check Now</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock form %}

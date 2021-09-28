@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>MakeItEasy-PK</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">MakeItEasy-PK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto px-2 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Youtube Downloader</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/yt_ss">Youtube Screenshot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/media">Media Downloader</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/movie">Movie Details</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/ip">IP Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/seo">Seo Extractor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/web_ss">Website Screenshot</a> -->
+                    </li>
+
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Starts -->
+    {% block form %}{% endblock form %}
+    <!-- Form Ends -->
+    
+    <div id="contact" class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                About / Contact
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">We Are Developers</h5>
+                <p class="card-text">We Are Work For You People So That You Can Easily Work And Share it As Well. This Project is Also For You. You Can Easily Design Static Design With JS As Well. If You Find Any Type Of Bug Or If You Need Any Changes So That Please Mail Us Or <br> Contact Via:-.</p>
+                <a href="https://github.com/piyush-pk/" target="_blank" class="btn btn-dark mx-2"><i class="fab fa-github"></i></a>
+                <a href="http://facebook.com/mrpiyushpk" target="_blank" class="btn btn-dark mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="btn btn-dark mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="http://piyushpk.me/" target="_blank" class="btn btn-dark mx-2"><i class="fas fa-link"></i></a>
+                <a href="mailto:khandelwalpiyush02@gmail.com" target="_blank" class="btn btn-dark mx-2"><i class="fas fa-envelope"></i></i></a>
+            </div>
+            <div class="card-footer text-muted">
+                <!-- 2 days ago -->
+            </div>
+        </div>
+    </div>
+    <!-- About Ends -->
+
+    <!-- Footer -->
+    <footer class="page-footer font-small">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center mt-4 bg-dark text-white py-3">© 2021 Copyright:
+            <a href="http://piyushpk.me/"> piyushpk.me</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <!-- Form Ends -->
+
+    <!-- <img src="/img/example-21.svg" class="img-fluid" alt="..."> -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

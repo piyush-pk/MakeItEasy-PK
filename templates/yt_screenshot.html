@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block form %}
+<div class="container text-center my-4 p-3">
+    <h1 class="border border-4 rounded-3 p-4"><u>Capture Live Screenshot Of Any Youtube Video Without Any Ads</u>.</h1>
+    <!-- <img src="/static/img/undraw_Developer_activity_re_39tg.svg" height="100" class="img-fluid"> -->
+    <div class="text-center mt-4 p-3">
+        {% if request.method == "POST" %}
+              
+        
+        {% comment %} <img src="data:image/jpeg;base64,{{response}}" class="img-fluid" alt="Youtube Screenshot"> {% endcomment %}
+        <img src="/static/img/temp.png" class="img-fluid" alt="Youtube Screenshot">
+
+        <a class="btn btn-outline-danger my-4" href="/static/img/temp.png" target="_blank" download>Download Now</a>
+
+        <div class="container my-3 border border-color-warning border-4 rounded-3">
+        <h4 class="display-6 mt-4">Download Other Screenshot</h4>
+        <form action="/yt_ss" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="url" required class="form-control" name="ytlink" placeholder="Enter Youtube Link"
+                aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" required class="form-control" name="seconds" placeholder="Enter Time in Seconds To Capture . . ."
+                aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning" type="submit">Capture Now</button>
+            </div>
+        </form>
+        </div>
+        {%else%}
+        <img src="/static/img/22.svg" class="img-fluid" alt="...">
+        <form action="/yt_ss" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="url" required class="form-control" name="ytlink" placeholder="Enter Youtube Link"
+                aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" required class="form-control" name="seconds" placeholder="Enter Time in Seconds To Capture . . ."
+                aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning" type="submit">Capture Now</button>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock form %}

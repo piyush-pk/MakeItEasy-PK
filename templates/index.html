@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block form %}
+<div class="container text-center my-4 p-3">
+  <h1 class="border border-4 rounded-3 p-4">
+    <u>Download Youtube Videos Without Any Ads</u>.
+  </h1>
+  <!-- <img src="/static/img/undraw_Developer_activity_re_39tg.svg" height="100" class="img-fluid"> -->
+  <div class="text-center mt-4 p-3">
+    {% if request.method == "POST" %}
+    <img
+      src="{{response.thumb}}"
+      class="img-fluid border border-warning border-4 rounded-3"
+      alt="Thumbnail"
+    />
+    <div class="text-center mt-4 p-3">
+      <h5 class="display-6 text-decoration-underline">
+        {{response.title}} [{{response.length}}] by {{response.author}}
+      </h5>
+      {% load custom_tags %}
+      <div class="d-grid gap-2 mx-auto">
+        {% for item in items %}
+        <a
+          class="btn btn-outline-primary"
+          target="_blank"
+          href="{{item | index:0}}"
+          download="{{response.title}}.mp4"
+          >{{item | index:1}} {{item| index:3}}<i
+            class="fal fa-cloud-download"
+          ></i
+        ></a>
+        {% endfor %}
+
+        <a class="btn btn-outline-danger" href="{{mp3.link}}"
+          >Download Mp3 <i class="fal fa-cloud-download"></i
+        ></a>
+      </div>
+      {% comment %}
+      <p>{{response}}</p>
+      {% endcomment %}
+
+        <div class="container my-3 border border-color-warning border-4 rounded-3">
+        <h4 class="display-6 mt-4">Download Other Video</h4>
+      <form action="/" method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+          <input
+            type="url"
+            required
+            class="form-control"
+            name="yt-link"
+            placeholder="Enter Youtube Link"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-danger" type="submit">
+            Download Video
+          </button>
+        </div>
+      </form>
+      </div>
+    </div>
+    {% else %}
+    <img src="/static/img/22.svg" class="img-fluid" alt="" />
+    <form action="/" method="POST">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        <input
+          type="url"
+          required
+          class="form-control"
+          name="yt-link"
+          placeholder="Enter Youtube Link"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-danger" type="submit">
+          Download Video
+        </button>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock form %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block form %}
+<div class="container text-center my-4 p-3">
+    <h1 class="border border-4 rounded-3 p-4"><u>Extract Any Website Seo Details Not Without Any Ads</u>.</h1>
+    {% if request.method == "POST" %}
+    {% load custom_tags %}
+        <a class="btn btn-outline-danger" href="{{response.url}}" target="_blank">{{response.title}}</a>
+        {% for key, value in response.items%}
+        {% if value|typeof is str %}
+          
+            <p>{{key}}: {{value}}</p>
+        {% endif %}
+        {% endfor %}
+      {% else %}
+      <img src="/static/img/22.svg" class="img-fluid" alt="...">
+      <!-- <img src="/static/img/undraw_Developer_activity_re_39tg.svg" height="100" class="img-fluid"> -->
+      <div class="text-center mt-4 p-3">
+          <form action="/seo" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="url" required class="form-control" name="seo" placeholder="Enter Website ...."
+                aria-label="Username" aria-describedby="basic-addon1">
+                
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning" type="submit">Check Now</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock form %}
